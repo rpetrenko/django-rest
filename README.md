@@ -34,3 +34,14 @@ python manage.py startapp main
 
 * every time you change settings.py, the application has to be redeployed
 
+* drop in debug shell: ./manage.py shell
+
+* dump data from db to json
+```
+./manage.py dumpdata --indent 2 main.ProductTag
+```
+
+* load from json to db
+```
+./manage.py loaddata fname
+```

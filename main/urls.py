@@ -1,6 +1,7 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
 from main import views
+from main import admin
 
 
 urlpatterns = [
@@ -21,4 +22,5 @@ urlpatterns = [
         TemplateView.as_view(template_name="home.html"),
         name="home",
     ),
+    # path("admin/", admin.main_admin.urls)
 ]

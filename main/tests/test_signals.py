@@ -33,7 +33,6 @@ class TestSignal(TestCase):
             "rb",
         ) as f:
             expected_content = f.read()
-            #TODO enable this test
             assert image.thumbnail.read() == expected_content
 
         image.thumbnail.delete(save=False)
