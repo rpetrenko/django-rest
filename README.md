@@ -19,6 +19,14 @@ psql -h localhost -U postgres -W mydatabase
 exit
 ```
 
+# create virtual env and install deps
+```
+python -m venv venv
+. venv/bin/activate
+pip install -U pip
+pip install -r requirements.txt
+```
+
 # dev notes
 * start project
 ```
