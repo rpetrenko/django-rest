@@ -53,3 +53,8 @@ python manage.py startapp main
 ```
 ./manage.py loaddata fname
 ```
+
+* import sample books and images
+```
+./manage.py import_data main/fixtures/product-sample.csv main/fixtures/product-sampleimages/
+```

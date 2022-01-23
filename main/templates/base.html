@@ -39,11 +39,7 @@
               class="nav-item {% if request.path == "/contact-us/" %}active{% endif %}">
               <a class="nav-link" href="/contact-us/">Contact us</a>
             </li>
-            {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url "logout" %}?next=/">Log out</a>
-              </li>
-            {% endif %}
+
           </ul>
         </div>
       </nav>

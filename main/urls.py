@@ -1,5 +1,7 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
+from django.views.generic.detail import DetailView
+from main import models
 from main import views
 from main import admin
 
@@ -22,5 +24,14 @@ urlpatterns = [
         TemplateView.as_view(template_name="home.html"),
         name="home",
     ),
-    # path("admin/", admin.main_admin.urls)
+    path(
+        "product/<slug:slug>/",
+        DetailView.as_view(model=models.Product),
+        name="product",
+    ),
+    path(
+        "products/<slug:tag>/",
+        views.ProductListView.as_view(),
+        name="products",
+    ),
 ]
