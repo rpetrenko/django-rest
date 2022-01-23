@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
     'rest_framework',
     'main.apps.MainConfig',
 ]
@@ -82,7 +83,7 @@ DATABASES = {
     },
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',
+        'NAME': 'booktime',
         'USER': 'postgres',
         'PASSWORD': 'mypassword',
         'HOST': '127.0.0.1',
@@ -176,3 +177,6 @@ else:
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+AUTH_USER_MODEL = 'main.User'
+LOGIN_REDIRECT_URL = "/"

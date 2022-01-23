@@ -1,6 +1,7 @@
 asgiref==3.4.1
 Django==3.2.11
 django-filter==21.1
+django-widget-tweaks==1.4.12
 djangorestframework==3.13.1
 importlib-metadata==4.10.1
 Markdown==3.3.6

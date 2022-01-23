@@ -1,4 +1,7 @@
 import logging
+from urllib import response
+from django.contrib.auth import login, authenticate
+from django.contrib import messages
 from django.views.generic.edit import (
     FormView,
     CreateView,
@@ -44,5 +47,31 @@ class ProductListView(ListView):
         logger.info(products)
 
         return products.order_by("name")
+
+
+class SignupView(FormView):
+    template_name = "signup.html"
+    form_class = forms.UserCreationForm
+
+    def get_success_url(self):
+        redirect_to = self.request.GET.get("next", '/')
+        return redirect_to
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        form.save()
+
+        email = form.cleaned_data.get('email')
+        raw_password = form.cleaned_data.get('password1')
+        logger.info(
+            "new signup for email {}".format(email)
+        )
+        user = authenticate(email=email, password=raw_password)
+        login(self.request, user)
+        form.send_mail()
+        messages.info(
+            self.request, "you signed up successfully."
+        )
+        return response
 
 
